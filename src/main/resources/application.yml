@@ -1,0 +1,36 @@
+server:
+  port: 8001
+  whitelabel.enabled: false
+  error.path: /classpath:templates/error
+  context-path1: /arshikhan
+spring:
+  security.user.name: arshiu
+  security.user.password: arship
+  ipo:
+    datasource:
+      driver-class-name: "com.mysql.cj.jdbc.Driver"
+      url: "jdbc:mysql://localhost:3306/IPO_REGISTRATION?useSSL=false"
+      password: "arshi"
+      username: "arshi"
+      testOnBorrow: true
+      testWhileIdle: true
+      validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate.id.new_generator_mappings: false
+    database: mysql
+management:
+  security:
+    enabled: false
+  port: 8002
+  context-path: /management/actuator
+  endpoints:
+    web:
+      exposure:
+        include : "*"
+      base-path : /managementBase/actuator
